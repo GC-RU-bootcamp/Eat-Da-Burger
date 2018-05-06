@@ -13,9 +13,11 @@ var db_connect_info = {
 
 var mysql = require("mysql");
 
-
+if(process.env.JAWSDB_URL) {
+  var connection = mysql.createConnection( process.env.JAWSDB_URL );
+} else {
 var connection = mysql.createConnection( db_connect_info );
-  
+}
 //   {
 //   port: 3306,
 //   host: "localhost",
