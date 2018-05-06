@@ -1,38 +1,76 @@
-<h1>Eat-Da-Burger!</h1>
 
-<h2>Burgers that are ready to eat!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#unless eaten}}
-      {{> burgers/burger-block eaten=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+  <div class="container">
 
-<h2>Burgers that are eaten!</h2>
+    <div class="row">
+      <div class="col-12">
+        <div class="card ">
+          <div class="card-body rounded bg-warning text-center ">
+              <h3>Eat-Da-Burger!</h3>
+              <h5>By Gary Cender</h5>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<ul>
-  {{#each burgers}}
-    {{#if eaten}}
-      {{> burgers/burger-block eaten=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+    <hr>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+    <div class="row">
+      <div class="col-4">
+        <div class="card ">
+          <div class="card-body rounded bg-info text-center ">
+              <h4>Burgers ready to go!</h4> 
+              <ul>
+                  {{#each burgers}}
+                    {{#unless eaten}}
+                      {{> burgers/burger-block eaten=true}}
+                    {{/unless}}
+                  {{/each}}
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card ">
+          <div class="card-body rounded bg-info text-center ">
+           
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+            <h4>Add a Burger</h4>
+            <form class="create-form">
+
+              <div class="form-group">
+                <label for="ca">Burger Name:</label>
+                <input type="text" id="ca" name="name">
+              </div>
+
+              <div class="form-group">
+                <label for="slee">Purchased?</label>
+                <br>
+                <input type="radio" name="eaten" value="1" checked> Purchased!
+                <br>
+                <input type="radio" name="eaten" value="0"> Add to stock
+              </div>
+
+              <button type="submit">Add Burger</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card ">
+          <div class="card-body rounded bg-info text-center ">
+              <h4>Burgers purchased!</h4>
+              <ul>
+                  {{#each burgers}}
+                    {{#if eaten}}
+                      {{> burgers/burger-block eaten=false}}
+                    {{/if}}
+                  {{/each}}
+                </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <label for="slee">Eaten?</label><br>
-    <input type="radio" name="eaten" value="1" checked> Eaten!<br>
-    <input type="radio" name="eaten" value="0"> Eat
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
