@@ -1,7 +1,7 @@
-<li>
-	{{name}}
+<div class="burger text-left rounded">
+  <strong>{{name}}</strong>	
 
-	<button class="change-eaten" data-id="{{id}}" data-neweaten="{{eaten}}">
-		{{#if eaten}} Buy  {{else}} Make another {{/if}}
+	<button class="change-eaten btn-sm" data-id="{{id}}" data-neweaten="{{eaten}}">
+		{{#if eaten}} Eat  {{else}} Make {{/if}}
 	</button>
-</li>
+</div>
